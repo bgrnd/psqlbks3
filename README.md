@@ -5,7 +5,7 @@ This image obtains the databases from a Postgres instance excluding templates an
 
 #### build and run
 
-docker build -t bgrande/psqlbks3
+    docker build -t bgrande/psqlbks3
 
     docker run -e PGHOST=10.0.0.12 \
                -e PGPORT=5432 \
@@ -46,4 +46,7 @@ docker build -t bgrande/psqlbks3
     Backups finished!
 
 ### Run as a kubernetes cronjob 
-kubectl create -f k8s-cronjob.yml 
+Configure the image to run automatically with a CronJob inside you kubernetes cluster. Consider use Secrets or other 
+mechanism to set up your passwords.
+ 
+    kubectl create -f k8s-cronjob.yml 
